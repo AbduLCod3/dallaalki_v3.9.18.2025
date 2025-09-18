@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "name": "Ali Hassan",
+    "company": "Dallaal Experts",
+    "phone": "+252612345678",
+    "email": "ali@example.com",
+    "location": "Mogadishu",
+    "listingsCount": 5
+  },
+  {
+    "id": "2",
+    "name": "Nimo Warsame",
+    "company": "Nimo Real Estate",
+    "phone": "+252615555555",
+    "email": "nimo@example.com",
+    "location": "Hargeisa",
+    "listingsCount": 3
+  },
+  {
+    "id": "3",
+    "name": "Ali Hassan",
+    "company": "Dallaal Experts",
+    "phone": "+252612345678",
+    "email": "ali@example.com",
+    "location": "Mogadishu",
+    "listingsCount": 5
+  },
+  {
+    "id": "4",
+    "name": "Nimo Warsame",
+    "company": "Nimo Real Estate",
+    "phone": "+252615555555",
+    "email": "nimo@example.com",
+    "location": "Hargeisa",
+    "listingsCount": 3
+  },
+  {
+    "id": "4",
+    "name": "Ali Hassan",
+    "company": "Dallaal Experts",
+    "phone": "+252612345678",
+    "email": "ali@example.com",
+    "location": "Mogadishu",
+    "listingsCount": 5
+  },
+  {
+    "id": "5",
+    "name": "Nimo Warsame",
+    "company": "Nimo Real Estate",
+    "phone": "+252615555555",
+    "email": "nimo@example.com",
+    "location": "Hargeisa",
+    "listingsCount": 3
+  },
+  {
+    "id": "6",
+    "name": "Ali Hassan",
+    "company": "Dallaal Experts",
+    "phone": "+252612345678",
+    "email": "ali@example.com",
+    "location": "Mogadishu",
+    "listingsCount": 5
+  },
+  {
+    "id": "7",
+    "name": "Nimo Warsame",
+    "company": "Nimo Real Estate",
+    "phone": "+252615555555",
+    "email": "nimo@example.com",
+    "location": "Hargeisa",
+    "listingsCount": 3
+  },
+  {
+    "id": "8",
+    "name": "Ali Hassan",
+    "company": "Dallaal Experts",
+    "phone": "+252612345678",
+    "email": "ali@example.com",
+    "location": "Mogadishu",
+    "listingsCount": 5
+  },
+  {
+    "id": "9",
+    "name": "Nimo Warsame",
+    "company": "Nimo Real Estate",
+    "phone": "+252615555555",
+    "email": "nimo@example.com",
+    "location": "Hargeisa",
+    "listingsCount": 3
+  }
+]

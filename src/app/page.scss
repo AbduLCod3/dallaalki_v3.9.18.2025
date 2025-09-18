@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(243, 10, 10);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, arial, sans-serif;
+  font-weight: 400; // Regular for body text
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600; // Semibold for headings for strong hierarchy
+}

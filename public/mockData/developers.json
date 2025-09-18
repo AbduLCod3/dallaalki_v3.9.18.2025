@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "SomBuild Co.",
+    "company": "SomBuild Co.",
+    "phone": "+252617777777",
+    "projectsDelivered": 12,
+    "verified": true
+  },
+  {
+    "id": "2",
+    "name": "Horn Dev Group",
+    "company": "Horn Dev Group",
+    "phone": "+252618888888",
+    "projectsDelivered": 5,
+    "verified": false
+  },
+  {
+    "id": "3",
+    "name": "SomBuild Co.",
+    "company": "SomBuild Co.",
+    "phone": "+252617777777",
+    "projectsDelivered": 12,
+    "verified": true
+  },
+  {
+    "id": "4",
+    "name": "Horn Dev Group",
+    "company": "Horn Dev Group",
+    "phone": "+252618888888",
+    "projectsDelivered": 5,
+    "verified": false
+  },
+  {
+    "id": "5",
+    "name": "SomBuild Co.",
+    "company": "SomBuild Co.",
+    "phone": "+252617777777",
+    "projectsDelivered": 12,
+    "verified": true
+  },
+  {
+    "id": "6",
+    "name": "Horn Dev Group",
+    "company": "Horn Dev Group",
+    "phone": "+252618888888",
+    "projectsDelivered": 5,
+    "verified": false
+  }
+]

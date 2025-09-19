@@ -1,3 +1,75 @@
-.layout{
-  background-color: rebeccapurple;
+@use "./responsive.scss";
+.layout {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  // background-color: rgb(238, 141, 238);
+  max-width: 1366px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 29px;
+  padding-right: 29px;
+
+  @include responsive.LargeScreen {
+    background-color: rgb(130, 130, 206);
+    max-width: 1280px;
+  }
+  @include responsive.mediumScreen {
+    background-color: rgb(83, 85, 87);
+    max-width: 768px;
+  }
+
+  @include responsive.smallScreen {
+    background-color: rgb(192, 128, 128);
+    max-width: 640px;
+  }
+}
+
+nav {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+    flex: 3;
+    // background-color: yellow;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 0px;
+    margin-left: 0px;
+    border: 2px;
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      display: flex;
+      // gap: 10px;
+      align-items: center;
+      margin-top: 100px;
+      margin-left: 0px;
+      margin-right: 0px;
+
+      img {
+        width: 500px;
+        height: 320px;
+      }
+    }
+  }
+
+  .right {
+    flex: 2;
+    // background-color: greenyellow;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 30px;
+  }
 }

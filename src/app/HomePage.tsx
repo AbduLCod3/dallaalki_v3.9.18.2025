@@ -1,4 +1,3 @@
-import "./page.scss";
 export default function HomePage() {
   return (
     <>

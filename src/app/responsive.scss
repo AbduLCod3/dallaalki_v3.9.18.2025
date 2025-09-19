@@ -1,0 +1,17 @@
+@mixin LargeScreen {
+  @media (max-width: 1366px) {
+    @content;
+  }
+}
+
+@mixin mediumScreen {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin smallScreen {
+  @media (max-width: 738px) {
+    @content;
+  }
+}

@@ -1,0 +1,165 @@
+@use "./responsive.scss" as responsive; // Bring in responsive mixins
+
+// ============ TOKENS ============
+$blue: #418fde; // Somalia blue
+$blue-alt: #4189dd; // Deeper hover blue
+$white: #ffffff; // White surfaces
+$ink: #101418; // Neutral dark text
+$muted: #6b7280; // Secondary gray
+$radius: 16px; // Softer corners
+$shadow: 0 10px 30px rgba(14, 17, 22, 0.08); // Elevated shadow
+$pad-x: 28px; // Wider gutters for a premium feel
+$maxw: 1366px; // Content width limit
+
+// ============ BASE LAYOUT ============
+.layout {
+  // Content container
+  padding: 0; // Reset padding
+  margin: 0; // Reset margin
+  height: 100vh; // Full height
+  box-sizing: border-box; // Predictable sizing
+  max-width: $maxw; // Constrain width
+  margin-left: auto; // Center page
+  margin-right: auto; // Center page
+  padding-left: $pad-x; // Side gutter
+  padding-right: $pad-x; // Side gutter
+  background: linear-gradient(
+    180deg,
+    rgba(65, 143, 222, 0.06) 0%,
+    rgba(255, 255, 255, 1) 38%
+  ); // Subtle blue-to-white wash
+  color: $ink; // Dark readable text
+}
+
+// ============ TOP NAV ============
+nav {
+  // Main navigation bar
+  display: flex; // Flex layout
+  height: 96px; // Taller for premium feel
+  justify-content: space-between; // Spread groups
+  align-items: center; // Vertically center
+  padding: 0 $pad-x; // Inner horizontal padding
+  border-radius: $radius; // Rounded edges
+  background: linear-gradient(
+    180deg,
+    $white 0%,
+    rgba(255, 255, 255, 0.92) 100%
+  ); // Glossy white bar
+  box-shadow: $shadow; // Lift from background
+  border: 1px solid rgba(16, 20, 24, 0.04); // Hairline border for crispness
+  backdrop-filter: saturate(1.1) blur(2px); // Tiny glassy snap
+
+  a {
+    // All nav links
+    text-decoration: none; // Remove underline
+    color: $ink; // Default text color
+    transition: color 180ms ease, transform 180ms ease; // Smooth hover
+    font-weight: 600; // Assertive weight
+
+    &:hover {
+      // Link hover
+      color: $blue; // Brand hover color
+      transform: translateY(-1px); // Slight lift
+    }
+  }
+
+  .left {
+    // Logo + left items
+    flex: 3; // Wider left section
+    display: flex; // Horizontal
+    align-items: center; // Center vertically
+    gap: 32px; // Spacing between items
+    border: 0; // Remove stray border
+
+    .logo {
+      // Brand logo/text
+      font-weight: 800; // Strong weight
+      font-size: 22px; // Slightly larger
+      display: flex; // Flex align
+      align-items: center; // Vertical center
+      color: $blue; // Brand tint
+      text-transform: uppercase; // Rugged, confident vibe
+      letter-spacing: 0.6px; // Wider tracking for presence
+    }
+  }
+
+  .right {
+    // Right-side actions
+    flex: 2; // Narrower than left
+    display: flex; // Horizontal
+    align-items: center; // Vertical center
+    justify-content: flex-end; // Push right
+    height: 100%; // Match nav height
+    gap: 14px; // Space between controls
+
+    .login {
+      // CTA button (outlined style)
+      background-color: transparent; // Transparent fill
+      color: $blue; // Blue text
+      padding: 10px 18px; // Button padding
+      border-radius: $radius; // Rounded shape
+      border: 2px solid $blue; // Blue outline
+      font-weight: 800; // Strong weight for clarity
+      transition: background-color 180ms ease, color 180ms ease,
+        transform 180ms ease; // Smooth transitions
+      cursor: pointer; // Clickable
+
+      &:hover {
+        // Hover state
+        background-color: $blue; // Fill with blue
+        color: $white; // Switch to white text
+        transform: translateY(-1px); // Slight lift
+      }
+
+      &:active {
+        // Active press
+        transform: translateY(0); // Reset lift
+      }
+    }
+
+    .menuIcon {
+      // Mobile menu icon
+      display: none; // Hidden on desktop
+      @include responsive.smallScreen {
+        // Show on small screens
+        display: inline-flex; // Inline-flex for alignment
+        align-items: center; // Vertical center
+      }
+
+      img {
+        // Icon image
+        width: 32px; // Icon width
+        height: 32px; // Icon height
+        cursor: pointer; // Clickable
+        transition: transform 160ms ease; // Smooth hover
+
+        &:hover {
+          // Hover effect
+          transform: scale(1.06); // Gentle pop
+        }
+      }
+    }
+
+    .menu {
+      // Mobile drawer
+      position: fixed; // Overlay attachment
+      top: 0; // Top aligned
+      right: 0; // Right aligned
+      background-color: $white; // White panel
+      color: $ink; // Dark text
+      height: 100vh; // Full height
+      width: 70%; // Drawer width
+      max-width: 420px; // Max width for tablets
+      border-left: 1px solid rgba(16, 20, 24, 0.08); // Divider line
+      box-shadow: $shadow; // Depth
+      padding: 28px; // Inner spacing
+      transform: translateX(100%); // Off-canvas start
+      transition: transform 260ms ease; // Slide transition
+
+      &.is-open {
+        // Open state
+        transform: translateX(0%); // Slide in
+      }
+    }
+  }
+}

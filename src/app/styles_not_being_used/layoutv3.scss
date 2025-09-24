@@ -1,0 +1,137 @@
+@use "./responsive.scss"; // import your responsive mixins file
+
+// ====== TOKENS (colors, spacing, radius, shadows, type) ======
+$blue: #418FDE; // primary Somalia blue
+$blue-alt: #4189DD; // deeper Somalia blue for hover/active
+$white: #FFFFFF; // base white
+$ink: #0E1222; // near-black text for strong legibility
+$muted: rgba(14, 18, 34, 0.08); // subtle divider/shadow color
+
+$space-0: 0; // spacing scale: zero
+$space-1: 4px; // spacing scale: x-small
+$space-2: 8px; // spacing scale: small
+$space-3: 12px; // spacing scale: medium
+$space-4: 16px; // spacing scale: large
+$space-5: 24px; // spacing scale: x-large
+$space-6: 32px; // spacing scale: 2x-large
+
+$radius-sm: 8px; // small corner radius
+$radius-md: 14px; // medium corner radius
+$shadow-sm: 0 2px 8px rgba(14, 18, 34, 0.06); // light card/nav shadow
+
+$font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; // modern default font
+$font-size-base: 16px; // base font size
+$font-weight-regular: 500; // slightly heavier for a confident feel
+$font-weight-bold: 700; // bold weight for logo/CTA
+
+// ====== LAYOUT WRAPPER ======
+.layout { // page container
+  padding: $space-0; // remove default padding
+  margin: $space-0; // remove default margin
+  height: 100vh; // full viewport height
+  box-sizing: border-box; // include padding/border in size calc
+  max-width: 1366px; // constrain line length for readability
+  margin-left: auto; // center horizontally
+  margin-right: auto; // center horizontally
+  padding-left: 29px; // keep your original left padding
+  padding-right: 29px; // keep your original right padding
+  background-color: $white; // clean white background
+  color: $ink; // default text color
+  font-family: $font-sans; // apply modern font
+  font-size: $font-size-base; // apply base font size
+}
+
+// ====== NAV BAR ======
+nav { // main navigation bar
+  display: flex; // place children horizontally
+  height: 80px; // slightly shorter, more modern height
+  justify-content: space-between; // spread left/right sections
+  align-items: center; // vertically center items
+  position: sticky; // keep nav visible on scroll
+  top: 0; // stick to top
+  background: $white; // white surface
+  border-bottom: 1px solid $muted; // subtle bottom divider
+  box-shadow: $shadow-sm; // light depth
+  border-radius: 0 0 $radius-md $radius-md; // soften bottom corners
+  padding-inline: $space-4; // inner horizontal padding
+  z-index: 10; // stay above content
+
+  a { // all links inside nav
+    text-decoration: none; // remove default underline
+    color: $ink; // dark text for contrast
+    transition: color 0.25s ease, transform 0.25s ease; // smooth hover effects
+    font-weight: $font-weight-regular; // confident medium weight
+
+    &:hover { // hover state
+      color: $blue; // highlight with brand blue
+      transform: translateY(-1px); // subtle lift
+    }
+  }
+
+  .left { // left side (logo + primary links)
+    flex: 3; // give more space to left area
+    display: flex; // horizontal layout
+    align-items: center; // vertical center
+    gap: $space-5; // space between logo and links
+    border: 0; // remove meaningless border value
+
+    .logo { // brand mark
+      font-weight: $font-weight-bold; // bold for emphasis
+      font-size: 20px; // keep your original size
+      display: flex; // align icon/text horizontally if needed
+      align-items: center; // vertical center
+      gap: $space-2; // space if you add an icon
+      color: $blue; // brand blue for logo text
+    }
+  }
+
+  .right { // right side (actions)
+    flex: 2; // smaller than left for balance
+    display: flex; // horizontal layout
+    align-items: center; // vertical center
+    justify-content: flex-end; // push content to the right
+    height: 100%; // fill nav height
+    gap: $space-3; // space between actions
+
+    .login { // primary action button
+      background-color: $blue; // brand primary
+      color: $white; // white text for contrast
+      padding: 10px 18px; // comfortable tappable size
+      border-radius: $radius-sm; // soft corners
+      font-weight: $font-weight-bold; // strong CTA presence
+      transition: background-color 0.2s ease, transform 0.2s ease; // smooth hover/press
+      cursor: pointer; // indicate action
+
+      &:hover { // hover state
+        background-color: $blue-alt; // deeper blue on hover
+        transform: translateY(-1px); // subtle lift
+      }
+      &:active { // press state
+        transform: translateY(0); // reset on press
+      }
+    }
+
+    .menuIcon { // mobile menu trigger
+      display: none; // hidden by default (desktop)
+      img { // icon image
+        width: 36px; // icon width
+        height: 36px; // icon height
+        cursor: pointer; // clickable
+      }
+      // @include responsive.smallScreen { display: inline; } // enable on small screens when your mixin is ready
+    }
+
+    .menu { // slide-out menu panel
+      position: absolute; // overlay from the corner
+      top: 0; // start at top
+      right: 0; // align to right edge
+      background-color: $blue; // brand panel color
+      color: $white; // white text on blue
+      height: 100vh; // full viewport height
+      width: 50%; // half screen width
+      padding: $space-5; // inner spacing
+      border-top-left-radius: $radius-md; // soften corner
+      box-shadow: -12px 0 24px rgba(14, 18, 34, 0.18); // depth towards page
+    }
+  }
+}

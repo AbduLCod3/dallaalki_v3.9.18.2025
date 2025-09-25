@@ -1,136 +1,351 @@
+// @use "../../app/styles/responsive.scss";
+
+// /* Theme */
+// $primary-color: #f97316; // vivid orange
+// $secondary-color: #374151; // slate text
+// $highlight-color: #ea580c; // deep orange
+// $background-color: #fffaf5; // light cream-orange
+// $white-color: #ffffff;
+
+// /* Navbar Styles - Keep these in layout since they're tightly coupled with layout */
+// nav {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 78px;
+//   padding: 0 16px;
+//   background: $white-color;
+//   border-radius: 18px;
+//   border: 1px solid rgba(249, 115, 22, 0.18);
+//   box-shadow: 0 10px 28px rgba(234, 88, 12, 0.12);
+//   margin-bottom: 5px;
+
+//   a {
+//     text-decoration: none;
+//     color: $secondary-color;
+//     transition: transform 0.2s ease, color 0.2s ease;
+
+//     &:hover {
+//       transform: translateY(-1px);
+//       color: $primary-color;
+//     }
+//   }
+
+//   .left {
+//     flex: 3;
+//     display: flex;
+//     align-items: center;
+//     padding-left: 50px;
+//     gap: 24px;
+//     font-weight: 500;
+//     font-size: 21px;
+
+//     a {
+//       @include responsive.smallScreen {
+//         display: none;
+//       }
+//     }
+
+//     .logo {
+//       font-weight: 900;
+//       font-size: 21px;
+//       background: linear-gradient(90deg, $primary-color, $highlight-color);
+//       -webkit-background-clip: text;
+//       background-clip: text;
+//       color: transparent;
+//       margin-right: 500px;
+//     }
+//   }
+
+//   .right {
+//     flex: 2;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
+//     gap: 12px;
+
+//     @include responsive.smallScreen {
+//       display: none;
+//     }
+//     @include responsive.mediumScreen {
+//       background-color: transparent;
+//     }
+
+//     .login {
+//       color: #fff;
+//       background: linear-gradient(135deg, $primary-color, $highlight-color);
+//       border: 0;
+//       border-radius: 14px;
+//       padding: 10px 18px;
+//       font-weight: 800;
+//       cursor: pointer;
+//       box-shadow: 0 8px 26px rgba(249, 115, 22, 0.25);
+
+//       &:hover {
+//         filter: brightness(1.05);
+//       }
+//     }
+//   }
+
+//   .menuIcon {
+//     display: none;
+//     z-index: 999;
+
+//     img {
+//       width: 36px;
+//       height: 36px;
+//       cursor: pointer;
+//       &:hover {
+//         transform: translateY(-1px);
+//       }
+//     }
+
+//     @include responsive.smallScreen {
+//       display: inline;
+//     }
+//   }
+
+//   .menu {
+//     position: absolute;
+//     background-color: transparent;
+//     color: rgb(224, 12, 12);
+//     top: 15%;
+//     right: -50%;
+//     height: 100vh;
+//     width: 30%;
+//     // Add transition for smooth animation
+//     transition: right 0.3s ease;
+
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 20px;
+//     font-size: 24px;
+
+//     &.active {
+//       right: 0;
+//     }
+
+//     @include responsive.smallScreen {
+//       a {
+//         display: initial;
+//       }
+//     }
+//   }
+// }
+
+/// OLD CODE ABOVE
+///
+///
+
+@use "sass:color";
 @use "../../app/styles/responsive.scss";
 
-/* Theme */
-$primary-color: #f97316; // vivid orange
-$secondary-color: #374151; // slate text
-$highlight-color: #ea580c; // deep orange
-$background-color: #fffaf5; // light cream-orange
+/* Theme Variables */
+$primary-color: #f97316;
+$secondary-color: #374151;
+$highlight-color: #ea580c;
 $white-color: #ffffff;
+$border-color: rgba(249, 115, 22, 0.18);
+$shadow-color: rgba(234, 88, 12, 0.12);
 
-/* Navbar Styles - Keep these in layout since they're tightly coupled with layout */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 78px;
-  padding: 0 16px;
-  background: $white-color;
-  border-radius: 18px;
-  border: 1px solid rgba(249, 115, 22, 0.18);
-  box-shadow: 0 10px 28px rgba(234, 88, 12, 0.12);
-  margin-bottom: 5px;
-
-  a {
-    text-decoration: none;
-    color: $secondary-color;
-    transition: transform 0.2s ease, color 0.2s ease;
-
-    &:hover {
-      transform: translateY(-1px);
-      color: $primary-color;
-    }
-  }
-
-  .left {
-    flex: 3;
+header {
+  nav {
     display: flex;
     align-items: center;
-    padding-left: 50px;
-    gap: 24px;
-    font-weight: 500;
-    font-size: 21px;
+    justify-content: space-between;
+    height: 78px;
+    padding: 0 16px;
+    background: $white-color;
+    border-radius: 18px;
+    border: 1px solid $border-color;
+    box-shadow: 0 10px 28px $shadow-color;
+    position: relative;
 
     a {
+      text-decoration: none;
+      color: $secondary-color;
+      transition: all 0.3s ease;
+      font-weight: 500;
+
+      &:hover {
+        transform: translateY(-1px);
+        color: $primary-color;
+      }
+    }
+
+    .logo {
+      img {
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .left {
+      flex: 3;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      a {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -5px;
+          left: 0;
+          background: linear-gradient(90deg, $primary-color, $highlight-color);
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+
+      @include responsive.smallScreen {
+        a:not(.logo) {
+          display: none;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      a {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &.login {
+          color: $white-color;
+          background: linear-gradient(135deg, $primary-color, $highlight-color);
+          border-radius: 14px;
+          padding: 10px 18px;
+          font-weight: 600;
+          box-shadow: 0 8px 26px rgba(249, 115, 22, 0.25);
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(249, 115, 22, 0.35);
+          }
+        }
+
+        &:not(.login):hover {
+          background: rgba(249, 115, 22, 0.1);
+        }
+      }
+
       @include responsive.smallScreen {
         display: none;
       }
     }
 
-    .logo {
-      font-weight: 900;
-      font-size: 21px;
-      background: linear-gradient(90deg, $primary-color, $highlight-color);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-right: 500px;
-    }
-  }
-
-  .right {
-    flex: 2;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-
-    @include responsive.smallScreen {
+    .menuIcon {
       display: none;
-    }
-    @include responsive.mediumScreen {
-      background-color: transparent;
-    }
+      z-index: 1001;
 
-    .login {
-      color: #fff;
-      background: linear-gradient(135deg, $primary-color, $highlight-color);
-      border: 0;
-      border-radius: 14px;
-      padding: 10px 18px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 8px 26px rgba(249, 115, 22, 0.25);
+      img {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
 
-      &:hover {
-        filter: brightness(1.05);
+        &:hover {
+          transform: scale(1.1);
+        }
       }
-    }
-  }
 
-  .menuIcon {
-    display: none;
-    z-index: 999;
-
-    img {
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      &:hover {
-        transform: translateY(-1px);
+      @include responsive.smallScreen {
+        display: block;
       }
     }
 
-    @include responsive.smallScreen {
-      display: inline;
-    }
-  }
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: $white-color;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      padding: 6rem 2rem 2rem;
 
-  .menu {
-    position: absolute;
-    background-color: transparent;
-    color: rgb(224, 12, 12);
-    top: 15%;
-    right: -50%;
-    height: 100vh;
-    width: 30%;
-    // Add transition for smooth animation
-    transition: right 0.3s ease;
+      &.active {
+        right: 0;
+      }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-size: 24px;
-
-    &.active {
-      right: 0;
-    }
-
-    @include responsive.smallScreen {
       a {
-        display: initial;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(249, 115, 22, 0.1);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background: rgba(249, 115, 22, 0.05);
+          border-radius: 8px;
+          margin: 0 -0.5rem;
+          padding-left: 1.5rem;
+        }
+      }
+
+      .login {
+        background: linear-gradient(135deg, $primary-color, $highlight-color);
+        color: $white-color;
+        border-radius: 12px;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: 600;
+
+        &:hover {
+          // Fixed: Using modern Sass color functions
+          background: linear-gradient(
+            135deg,
+            color.adjust($highlight-color, $lightness: -10%),
+            color.adjust($highlight-color, $lightness: -20%)
+          );
+        }
       }
     }
+  }
+}
+
+// Overlay for mobile menu
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
   }
 }

@@ -8,7 +8,6 @@ export interface Agent {
   company?: string;
   city?: string;
   avatarUrl?: string;
-  // future: list of listing IDs this agent owns
   listingIds?: ID[];
 }
 
@@ -20,7 +19,6 @@ export interface Developer {
   company?: string;
   city?: string;
   logoUrl?: string;
-  // future: developer portfolio or project IDs
   projectIds?: ID[];
 }
 
@@ -39,4 +37,14 @@ export interface Listing {
   video: string;
   phone: string;
   email: string;
+  // Consider adding these optional fields for better UX
+  featured?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
+
+// You could also create a more specific type for Buy listings if needed
+export type BuyListing = Listing & {
+  type: "buy";
+  // Add buy-specific fields here if any
+};

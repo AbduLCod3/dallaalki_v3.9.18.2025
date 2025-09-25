@@ -1,16 +1,18 @@
 import Image from "next/image";
-import "./styles/homePage.scss";
+import "./styles/page.scss";
 import SearchBar from "../components/searchBar/SearchBar";
 import mogaImage from "../../public/images/result_0.jpeg";
-export default function HomePage() {
-  let listings = 2000;
+
+export default function Page() {
+  const listings = 2000;
+
   return (
     <div className="content">
       <div className="homePage">
         <div className="textContainer">
           <div className="wrapper">
             <h1 className="title">
-              <h1>Welcome to Dallaalkii — Listings coming soon.</h1>
+              Welcome to Dallaalkii — Listings coming soon.
             </h1>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.

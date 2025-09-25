@@ -1,8 +1,10 @@
 import "./styles/layout_v2.scss";
 import Navbar from "../components/navBar/Navbar";
-import HomePage from "./HomePage";
 
-export const metadata = { title: "Dallaalkii.com" };
+export const metadata = {
+  title: "Dallaalkii.com",
+  description: "Your trusted real estate platform",
+};
 
 export default function RootLayout({
   children,
@@ -14,11 +16,7 @@ export default function RootLayout({
       <body>
         <div className="layout">
           <Navbar />
-          <div className="content">
-            <HomePage />
-          </div>
-
-          {/* <main>{children}</main> */}
+          <main>{children}</main>
           <footer>© {new Date().getFullYear()} Dallaalkii</footer>
         </div>
       </body>

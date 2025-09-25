@@ -1,0 +1,108 @@
+@use "../styles/responsive.scss";
+
+/* Theme Variables */
+$primary-color: #f97316;
+$secondary-color: #374151;
+$highlight-color: #ea580c;
+$background-color: #fffaf5;
+$white-color: #ffffff;
+$border-color: rgba(249, 115, 22, 0.18);
+$shadow-color: rgba(234, 88, 12, 0.12);
+
+.buy-page {
+  min-height: 80vh;
+  padding: 2rem 0;
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, $primary-color, $highlight-color);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+
+      @include responsive.smallScreen {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $secondary-color;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+
+    @include responsive.smallScreen {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: $white-color;
+    border-radius: 20px;
+    border: 2px dashed $border-color;
+    margin: 2rem 0;
+
+    .icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    p {
+      color: $secondary-color;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+
+      .feature {
+        background: rgba(249, 115, 22, 0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid $primary-color;
+
+        h3 {
+          color: $primary-color;
+          margin-bottom: 0.5rem;
+          font-size: 1.2rem;
+        }
+
+        p {
+          color: $secondary-color;
+          font-size: 0.9rem;
+          margin: 0;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

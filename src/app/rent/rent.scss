@@ -1,0 +1,130 @@
+@use "../styles/responsive.scss";
+
+/* Theme Variables */
+$primary-color: #f97316;
+$secondary-color: #374151;
+$highlight-color: #ea580c;
+$background-color: #fffaf5;
+$white-color: #ffffff;
+$border-color: rgba(249, 115, 22, 0.18);
+$shadow-color: rgba(234, 88, 12, 0.12);
+
+.rent-page {
+  min-height: 80vh;
+  padding: 2rem 0;
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, $primary-color, $highlight-color);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+
+      @include responsive.smallScreen {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $secondary-color;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .rental-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+
+    .feature-card {
+      background: $white-color;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid $border-color;
+      box-shadow: 0 8px 32px rgba(249, 115, 22, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(249, 115, 22, 0.15);
+      }
+
+      .icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        color: $secondary-color;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(
+      135deg,
+      rgba(249, 115, 22, 0.05),
+      rgba(234, 88, 12, 0.05)
+    );
+    border-radius: 20px;
+    margin: 2rem 0;
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .timeline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: $white-color;
+        border-radius: 25px;
+        border: 1px solid $border-color;
+
+        .number {
+          background: $primary-color;
+          color: $white-color;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
